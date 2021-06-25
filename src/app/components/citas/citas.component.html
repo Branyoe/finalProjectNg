@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="container mt-3">
+    <div class="row">
+
+      <div class="col-lg-6 col-md-7 col-sm-12 ">
+        <div class="form-group">
+          <form (ngSubmit)="guardar()">
+            <div class="form-floating mb-3">
+              <input [(ngModel)]="pasciente" [ngModelOptions]="{standalone: true}" type="text" autocomplete="off" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Paciente:</label>
+            </div>
+            <input [(ngModel)]="date" [ngModelOptions]="{standalone: true}" type="date" name="" class="form-control" id="">
+            <input [(ngModel)]="time" [ngModelOptions]="{standalone: true}" type="time" name="" class="form-control" id="">
+            <label class="mt-1" for="a">Comentarios</label>
+            <textarea [(ngModel)]="comentarios" [ngModelOptions]="{standalone: true}" class="form-control mb-2" id="a" rows="2"></textarea>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" type="submit">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-5 pt-2 col-sm-12 ">
+        <div *ngFor="let cita of citas; let i = index" class="card">
+          <div class="card-body">
+            <h5 class="card-title">Pasciente: {{cita.pasciente}}</h5>
+            <p><span class="badge m-2 rounded-pill bg-primary">Fecha: {{cita.fecha}}</span>  <span class="badge rounded-pill bg-danger">Hora: {{cita.hora}}</span></p>
+            <h6 class="card-title">Comentarios: </h6>
+            <p class="card-text">{{cita.comentarios}}</p>
+            <div class="d-grid gap-2">
+              <button (click)="eliminar(i)" class="btn btn-danger" type="submit">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
