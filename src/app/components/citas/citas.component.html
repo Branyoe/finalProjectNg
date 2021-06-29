@@ -1,39 +1,52 @@
-<div class="container-fluid">
-  <div class="container mt-3">
-    <div class="row">
-
-      <div class="col-lg-6 col-md-7 col-sm-12 ">
-        <div class="form-group">
-          <form (ngSubmit)="guardar()">
-            <div class="form-floating mb-3">
-              <input [(ngModel)]="pasciente" [ngModelOptions]="{standalone: true}" type="text" autocomplete="off" class="form-control" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">Paciente:</label>
-            </div>
-            <input [(ngModel)]="date" [ngModelOptions]="{standalone: true}" type="date" name="" class="form-control" id="">
-            <input [(ngModel)]="time" [ngModelOptions]="{standalone: true}" type="time" name="" class="form-control" id="">
-            <label class="mt-1" for="a">Comentarios</label>
-            <textarea [(ngModel)]="comentarios" [ngModelOptions]="{standalone: true}" class="form-control mb-2" id="a" rows="2"></textarea>
-            <div class="d-grid gap-2">
-              <button class="btn btn-primary" type="submit">Guardar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="col-lg-6 col-md-5 pt-2 col-sm-12 ">
-        <div *ngFor="let cita of citas; let i = index" class="card">
-          <div class="card-body">
-            <h5 class="card-title">Pasciente: {{cita.pasciente}}</h5>
-            <p><span class="badge m-2 rounded-pill bg-primary">Fecha: {{cita.fecha}}</span>  <span class="badge rounded-pill bg-danger">Hora: {{cita.hora}}</span></p>
-            <h6 class="card-title">Comentarios: </h6>
-            <p class="card-text">{{cita.comentarios}}</p>
-            <div class="d-grid gap-2">
-              <button (click)="eliminar(i)" class="btn btn-danger" type="submit">Eliminar</button>
+<div class="full">
+  <div class="container-fluid p-3">
+    <div class=" row d-flex justify-content-evenly">
+      <div class="col-lg-4 col-md-5 col-sm-12">
+        <div class="row">
+          <div id="div-form" class="col-12 p-5 radius">
+            <div class="form-group">
+              <form (ngSubmit)="guardar()">
+                <div class="form-floating mb-3">
+                  <input [(ngModel)]="pasciente" [ngModelOptions]="{standalone: true}" type="text" autocomplete="off"
+                    class="form-control pretty" id="floatingInput" placeholder="name@example.com">
+                  <label for="floatingInput">Paciente:</label>
+                </div>
+                <label for="fecha">Fecha:</label>
+                <input [(ngModel)]="date" [ngModelOptions]="{standalone: true}" type="date" name=""
+                  class="form-control pretty mt-1 mb-3" id="fecha">
+                <label for="hora">Hora:</label>
+                <input [(ngModel)]="time" [ngModelOptions]="{standalone: true}" type="time" name=""
+                  class="form-control pretty mt-1 mb-3" id="hora">
+                <label class="mt-1" for="a">Comentarios</label>
+                <textarea [(ngModel)]="comentarios" [ngModelOptions]="{standalone: true}"
+                  class="form-control pretty p-4 mt-1 mb-4" id="a" rows="2"></textarea>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-primary pretty" type="submit"><span
+                      class="badge m-2 rounded-pill bg-success">Guardar</span></button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-
+      <div class="col-lg-5 col-md-5 col-sm-12">
+        <div class=" row" *ngIf="citas.length > 0">
+          <div id="div-list" class=" col-12 m-1 p-5 radius">
+            <div *ngFor="let cita of citas; let i = index" class=" mb-5 card pretty">
+              <div class="card-body">
+                <h5 class="card-title fBold">Pasciente: {{cita.pasciente}}</h5>
+                <p><span class="badge m-2 rounded-pill fMedium bg-primary">Fecha: {{cita.fecha}}</span> <span
+                    class="badge rounded-pill fMedium bg-danger">Hora: {{cita.hora}}</span></p>
+                <h6 class="card-title fBold">Comentarios: </h6>
+                <p class="card-text fMedium">{{cita.comentarios}}</p>
+                <div class="d-grid m-2 gap-2">
+                  <button (click)="eliminar(i)" class="btn btn-danger pretty" type="submit"><span
+                      class="badge m-2 rounded-pill fBold bg-danger">Eliminar</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>

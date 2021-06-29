@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: fHeavy;
+  src: url(assets/fonts/SFNSDisplay-Heavy.otf) format("opentype");
+}
+@font-face{
+  font-family: fBlack;
+  src: url(assets/fonts/SFNSDisplay-Black.otf);
+}
+@font-face{
+  font-family: fMedium;
+  src: url(assets/fonts/SFNSDisplay-Medium.otf);
+}
+
+@font-face{
+  font-family: fBold;
+  src: url(assets/fonts/SFNSDisplay-Bold.otf);
+}
+
+.fHeavy{
+  font-family: fHeavy;
+}
+
+.fBold{
+  font-family: fBold;
+}
+
+.fMedium{
+  font-family: fMedium;
+  
+}
+
+.fBlack{
+  font-family: fBlack;
+}
